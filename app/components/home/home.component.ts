@@ -1,6 +1,8 @@
 import { Login } from './../../model/login';
 import { Component, OnInit } from '@angular/core';
 import { validate, ValidationError } from 'class-validator';
+import { RouterExtensions } from "nativescript-angular";
+import { BasicComponent } from '../shared/basic-component';
 var dialogs = require("ui/dialogs");
 
 @Component({
@@ -9,37 +11,14 @@ var dialogs = require("ui/dialogs");
 	templateUrl: './home.component.html'
 })
 
-export class HomeComponent implements OnInit {
+export class HomeComponent extends BasicComponent<Login> {
 
-	login: Login;
 
-	listErrors: Array<ValidationError> = [];
-
-	constructor() {
-		this.login = new Login();
+	constructor(private routerExtensions: RouterExtensions) {
+		super(new Login());
 	}
 
-	ngOnInit() { }
-
-	validLogin() {
-		try {
-			validate(this.login).then(errors => {
-				if (errors.length > 0) {
-					this.listErrors = errors;
-				} else {
-					this.listErrors = [];
-					this.messageLoginOk();
-				}
-			});
-		} catch (e) {
-			console.log(e);
-		}
-	}
-
-	messageLoginOk() {
-		dialogs.alert("Login sucess").then(function () {
-			console.log("Login sucess");
-		});
-
-	}
+	afterValidate() {
+		this.routerExtensions.navigate(["book-edit"], { animated: false });
+   }
 }

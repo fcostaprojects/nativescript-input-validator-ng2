@@ -22,6 +22,10 @@ refer to http://docs.nativescript.org/ui/theme.
   background-color:#ffffff;
 }
 
+.input-error {
+  border-color: red;
+  border-width: 1;
+}
 
 .form {
   background-color: teal;

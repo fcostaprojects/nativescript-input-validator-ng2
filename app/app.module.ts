@@ -1,3 +1,4 @@
+import { BookComponent } from './components/book/book.component';
 import { ValidatorComponent } from './components/validator/validator.component';
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
@@ -19,7 +20,8 @@ import { HomeComponent } from './components/home/home.component';
     declarations: [
         AppComponent,
         HomeComponent,
-        ValidatorComponent
+        ValidatorComponent,
+        BookComponent
     ],
     providers: [
         

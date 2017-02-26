@@ -3,11 +3,11 @@
 <StackLayout class="form">
    <StackLayout class="input-field" >
       <StackLayout orientation="vertical" class="form-login">
-         <TextField [(ngModel)]="login.email" hint="email" class="input-active"></TextField>
+         <TextField [(ngModel)]="model.email" hint="email" class="input-active"></TextField>
          <validator property="email" [listErrors]="listErrors"></validator>
-         <TextField [(ngModel)]="login.password" hint="password"  class="input-active" secure="true"></TextField>
+         <TextField [(ngModel)]="model.password" hint="password"  class="input-active" secure="true"></TextField>
          <validator property="password"  [listErrors]="listErrors"></validator>
-         <Button text="LOGIN" (tap)="validLogin()" class="btn-simple"></Button>
+         <Button text="LOGIN" (tap)="validate()" class="btn-simple"></Button>
       </StackLayout>
    </StackLayout>
 </StackLayout>
