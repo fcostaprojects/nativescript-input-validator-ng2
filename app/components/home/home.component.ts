@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
 				if (errors.length > 0) {
 					this.listErrors = errors;
 				} else {
-					this.listErrors = null;
+					this.listErrors = [];
 					this.messageLoginOk();
 				}
 			});
